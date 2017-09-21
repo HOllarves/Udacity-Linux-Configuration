@@ -16,7 +16,7 @@ Public IP: 35.176.192.35
 
 Amazon Lightsail allow its users to use an interactive terminal on their site to directly communicate with their servers using ssh. However, I always prefer to use my own ssh client runnning on my personal ubuntu machine.
 
-Initially, to enter my server using ssh I created a .pem key file using amazon lightsail client. I saved this .pem file to my .ssh folder, and then simply logged in using `ssh ubuntu@35.176.192.35 -i udacityServerKey.pm`
+Initially, to enter my server using ssh I created a .pem key file using amazon lightsail client. I saved this .pem file to my .ssh folder, and then simply logged in using `ssh ubuntu@35.176.192.35 -i udacityServerKey.pem`
 
 ### #3 - Set up
 
@@ -66,6 +66,10 @@ Later, I configured permissions for the files I just created:
 
 `chmod 644 ~/.ssh/authorized_keys`
 
+From now on, the grader can log in using:
+
+`ssh grader@35.176.192.35 -i id_rsa_udacity`
+
 ### #6 - Change SSH port
 
 I opened the ssh config file
@@ -109,6 +113,10 @@ And NTP requests:
 Finally, I enabled ufw:
 
 `sudo ufw enable`
+
+From now on, the grader can log in using:
+
+`ssh grader@35.176.192.35 -p 2200 -i id_rsa_udacity`
 
 ### #8 - Timezone configuration
 
